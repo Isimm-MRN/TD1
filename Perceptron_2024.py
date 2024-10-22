@@ -1,25 +1,20 @@
 # %%
 import numpy as np
 from matplotlib import pyplot as plt
-# %% [markdown]
-# # Algorithme d'apprentissage d'un perceptron
-
+# %% 
+# # Algorithme d'apprentissage d'un perceptron.
 # %%
 def perceptron(X, L):
     w = np.zeros(len(X[0])+1)    
     kmax = 20
-
     for t in range(kmax):
         for i, x in enumerate(X):
             Xi=np.append(X[i],np.ones(1))
             if (np.dot(w,Xi)*L[i]) <= 0:
                 w = w + Xi*L[i]
-
     return w
-
-# %% [markdown]
+# %% 
 # # Cas d'un ensemble de jeux des données simple.
-
 # %%
 X = np.array([[-2,4],[4,1],[1, 6],[2, 4],[6, 2],])
 L = np.array([-1,-1,1,1,1])
@@ -34,7 +29,7 @@ for d, sample in enumerate(X):
     else:
         plt.scatter(sample[0], sample[1], s=120, marker='+', linewidths=2,c="red")
 plt.show()
-# %% [markdown]
+# %% 
 # ## Visualiser la droite donnée par ce perceptron
 
 # %%
@@ -52,9 +47,8 @@ for d, sample in enumerate(X):
     else:
         plt.scatter(sample[0], sample[1], s=120, marker='+', linewidths=2,color="red")
 plt.show()
-# %% [markdown]
-# ## Visualiser les données testes.
-
+# %% 
+# ## Visualiser les données tests.
 # %%
 # Visualiser les données tests.
 # Visualiser la droite donnée par ce perceptron.
@@ -64,9 +58,8 @@ plt.legend(['Visualiser les données tests'])
 plt.scatter(2,2, s=120, marker='_', linewidths=2, color='black')
 plt.scatter(4,3, s=120, marker='+', linewidths=2, color='black')
 plt.show()
-# %% [markdown]
-# # Cas d'un ensemble de jeux des données aléatoires
-
+# %% 
+# # Cas d'un ensemble de jeux des données aléatoires.
 # %%
 mean1 = [0, 0]
 mean2 = [1, 5]
@@ -86,7 +79,6 @@ plt.legend(['La droite séparante des données'], loc="lower right")
 plt.plot(X1[:,0], X1[:,1], 'o')
 plt.plot(X2[:,0], X2[:,1], 'o')
 plt.show()
-
 # %%
 W = perceptron(X,L)
 print("Le poids de ce perceptron est W=",W)
@@ -98,6 +90,3 @@ plt.legend(['La droite donnée par le perceptron'], loc="lower right")
 plt.plot(X1[:,0], X1[:,1], 'o')
 plt.plot(X2[:,0], X2[:,1], 'o')
 plt.show()
-
-
-
