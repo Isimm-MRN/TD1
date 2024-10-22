@@ -9,6 +9,9 @@ cov2 = [[1, 0.75], [0.75, 1]]
 m=10
 X1 = np.random.multivariate_normal(mean1, cov1, m)
 X2 = np.random.multivariate_normal(mean2, cov2, m)
+# Visualiser une droite qui separe les jeux de données.
+plt.plot([-2,2],[2,2.5],"--")
+plt.legend(['La droite séparante des données'], loc="lower right") 
 plt.plot(X1[:,0], X1[:,1], 'o')
 plt.plot(X2[:,0], X2[:,1], 'o')
 #plt.axis('equal')
