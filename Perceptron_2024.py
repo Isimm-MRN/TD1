@@ -5,14 +5,14 @@ from matplotlib import pyplot as plt
 # # Algorithme d'apprentissage d'un perceptron.
 # %%
 def perceptron(X, L):
-    w = np.zeros(len(X[0])+1)    
+    W = np.zeros(len(X[0])+1)    
     kmax = 20
-    for t in range(kmax):
+    for k in range(kmax):
         for i, x in enumerate(X):
             Xi=np.append(X[i],np.ones(1))
-            if (np.dot(w,Xi)*L[i]) <= 0:
-                w = w + Xi*L[i]
-    return w
+            if (np.dot(W,Xi)*L[i]) <= 0:
+                W = W + L[i]Xi.T
+    return W
 # %% 
 # # Cas d'un ensemble de jeux des données simple.
 # %%
